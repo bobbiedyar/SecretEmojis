@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    <style>
+body {
+    background-image: url(./img/pic1.jpg);
+background-repeat: repeat;
+background-size: cover;
+
+font-family: "Lato", sans-serif;} ul.tab { list-style-type: none; margin: 0; padding: 0; overflow: hidden; border: 1px solid #ccc; background-color: #f1f1f1; } /* Float the list items side by side */ ul.tab li {float: left;} /* Style the links inside the list items */ ul.tab li a { display: inline-block; color: black; text-align: center; padding: 7px 7px; text-decoration: none; transition: 0.3s; font-size: 17px; } /* Change background color of links on hover */ ul.tab li a:hover { background-color: #ddd; } /* Create an active/current tablink class */ ul.tab li a:focus, .active { background-color: #ccc; } /* Style the tab content */ .tabcontent { display: none; padding: 7px 7px; -webkit-animation: fadeEffect 1s; animation: fadeEffect 1s; } @-webkit-keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} } @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+#data {
+  font-size: 14pt;
+}
+#data1 {
+  font-size: 14pt;
+}
+button {
+     display: inline-block;
+     width:65px;
+     height:40px;
+     border-width:2px;
+     border-style: solid;
+     border-color:blue;
+     background-color:#ff00ff;
+     border-radius:50% 50%;
+     text-align:center;
+     font-size:15px;
+     padding: 1px 1px;}
+
+#B {
+     width:110px;
+     height:55px;
+     border-width:4px;
+     border-style: solid;
+     border-color:purple;
+     background-color:#00ff00;
+     border-radius:100% 70%;
+     text-align:center;
+     font-size:20px;
+     padding: 1px 1px;}
+
+div#board{
+    background:SkyBlue;
+    border:#0000FF 1px solid;
+    width:320px;
+    height:340px;
+    padding:15px;
+    margin:0px auto;
+}
+div#board > div{ 
+    border:#00838F 1px solid;
+    width:40px;
+    height:40px;
+    float:left;
+    margin:2px;
+    padding:2px;
+    font-size:22px;
+    cursor:pointer;
+    text-align:center;
+}
+
+
+    </style>
+    </head>
+    <body>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> <script src="https://malsup.github.io/jquery.tcycle.js"></script>
+    <center>
+        <strong><p style= "font-size:30px">Secret Emojis</p></center></strong>
+          <ul class="tab"> <li><a href="#" class="tablinks" onclick="openDiv(event, 'Encrypt')">Encrypt</a></li> <li><a href="#" class="tablinks" onclick="openDiv(event, 'Game1')">Game1</a></li> <li><a href="#" class="tablinks" onclick="openDiv(event, 'Game2')">Game2</a></li>
+       <li><a href="#" class="tablinks" onclick="openDiv(event, 'Musical')">Musical Emojis</a></li>  
+           </ul> 
+          <div id="Encrypt" class="tabcontent">
+          <center><p style="font-size:35px"><strong>Secret Emojis</p></strong>
+    <strong>Add text to Encrypt here</strong>
+        <input type="text" id="data" name="data">
+        <p style="font-size:25px" id="a"></p> 
+        <button onclick="myFunction()">Encrypt1</button>
+            <button onclick="myFunction2()">Encrypt2</button>
+           <button onclick="myFunction4()">Encrypt3</button>     
+            <br>
+        <br> 
+      <strong>Copy and paste emojis here to Decrypt</strong>      <input type="text" id="data1" name="data1"><br><br>
+        <p style="font-size:25px" id="b"></p> 
+        <button onclick="myFunction1()">Decrypt1</button> 
+     
+      <button onclick="myFunction3()">Decrypt2</button>
+          <button onclick="myFunction5()">Decrypt3</button>
+      <br></center> </div>
+       <div id="Game1" class="tabcontent"> 
+            <div id="title" class="text-center">
+    <h2 style="text-align: center">Emoji Memory Game</h2>
+    <button id="B" onclick="onChangelang(this)">Start</button> Press button for new Level
+  </div>
+  
+<div id="board"></div>
+</div>
+<div id="Game2" class="tabcontent"> <form class="formoid-metro-cyan" style="background-color:blue;font-size:18px; font-weight: bold;color:#f57825;max-width:480px;min-width:150px; margin-left:auto; margin-right: auto;" method="post" novalidate="novalidate">
+            
+        <div class="title"><h2 style = "text-align: center; color: gold">Emoji Slot Machine Game</h2></div>
+    <div align="center"><p style="color: #fff;">If you get three of each pic you win!!!</p>
+<p><img src="./img/pic2.png" width="100" height="150" name="myPicture" alt="some image"> <img src="./img/pic3.png" width="100" height="150" name="myimages" alt="himynameisbandit">
+<img src="./img/pic4.png" width="100" height="150" name="cinema" alt="some image"><br></p>
+<p>
+</p><p style="color: red; font-size: 16py;"><div id = "win" style = "font-size: 2em; color: #ddd;"></div><br>
+<br>
+<input type="button" name="" value="Start" onclick="choosePic()" style = "border-radius: 100px; width: 60px; background-color:#00ff00; color: #444; height: 60px; font-weight: bold;"> <input type="button" name="" value="Stop" onclick="stopit()" style = "border-radius: 100px; width: 60px; background-color:#ff0033; color: #444; height: 60px; font-weight: bold; text-align: center;"><br>
+<br></p></div></form>
+</div>
+ <div id="Musical" class="tabcontent">
+
+   <h1 style="text-align: center">Musical Emojis</h1>
+     <br>
+         <audio id="play1" src="./aud/s1.mp3
+ "></audio> <button onclick="playSound1()">🙂</button>
+ 
+ <audio id="play2" src="./aud/s2.mp3
+ "></audio> <button onclick="playSound2()">🐦</button>
+ 
+ <audio id="play3" src="./aud/s3.mp3
+ "></audio> <button onclick="playSound3()">🐈</button>
+ 
+ <audio id="play4" src="./aud/s4.mp3
+ "></audio> <button onclick="playSound4()">🐩</button>
+ 
+ <audio id="play5" src="./aud/s5.mp3
+ "></audio> <button onclick="playSound5()">😎</button>
+ 
+ <audio id="play6" src="./aud/s6.mp3
+ "></audio> <button onclick="playSound6()">🍓</button>
+ 
+ <audio id="play7" src="./aud/s7.mp3
+ "></audio> <button onclick="playSound7()">⛵</button><br><br>
+ Happy Birthday<br>🙂 🙂 🐦 🙂 🐩 🐈<br>🙂 🙂 🐦 🙂 🐩 🐈<br>🙂 🙂 ⛵ 🐩 🐈 🐦 🙂 <br>⛵ ⛵ 🍓 🐩 😎 🐈<br><br>We Will Rock You<br>⛵ 🍓 😎 🐩 😎 😎<br>⛵ 🍓 😎 🐩 😎 😎</div><br><br>
+ <center><img src="./img/pic5.gif" height="300px" width="300px"></center>
+    <script>
+
+function openDiv(evt, divName) { 
+var i, tabcontent, tablinks; tabcontent = document.getElementsByClassName("tabcontent"); 
+for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; } tablinks = document.getElementsByClassName("tablinks"); for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); } document.getElementById(divName).style.display = "block"; evt.currentTarget.className += " active"; }
+var letterMap = {
+    "A": "🙈",
+    "B": "🤓",
+    "C": "🐒",
+    "D": "⛵",
+    "E": "🙉",
+    "F": "😎",
+    "G": "🌲",
+    "H": "🌟",
+    "I": "🐎",
+    "J": "⚽",
+    "K": "👑",
+    "L": "🐕",
+    "M": "🙃",
+    "N": "🍓",
+    "O": "😍",
+    "P": "🎂",
+    "Q": "🏵",
+    "R": "🐇",
+    "S": "🍬",
+    "T": "🏰",
+    "U": "🙊",    
+    "V": "😵",
+    "W": "🐩",
+    "X": "🌻",
+    "Y": "🍭",
+    "Z": "🐦",}
+
+function myFunction() { 
+        var inputText =  document.getElementById("data").value;
+var word = inputText.toUpperCase();
+var encrypted = "";
+for(var i = 0; i < word.length; i++){
+    encrypted += letterMap[word[i]] || word[i];
+}
+function clearInput(element){ element.value=""; }
+document.getElementById("a").innerHTML = encrypted;}
+
+
+var letterMap1 = {
+    "🙈": "A",
+    "🤓": "B",
+    "🐒": "C",
+    "⛵": "D",
+    "🙉": "E",
+    "😎": "F",
+    "🌲": "G",
+    "🌟": "H",
+    "🐎": "I",
+    "⚽": "J",
+    "👑": "K",
+    "🐕": "L",
+    "🙃": "M",
+    "🍓": "N",
+    "😍": "O",
+    "🎂": "P",
+    "🏵": "Q",
+    "🐇": "R",
+    "🍬": "S",
+    "🏰": "T",
+    "🙊": "U",   
+    "😵": "V",
+    "🐩": "W",
+    "🌻": "X",
+    "🍭": "Y",
+    "🐦": "Z"};
+
+function myFunction1() { 
+        var inputText =  document.getElementById("data1").value;
+        
+        //*************************
+        // magic happens here
+        
+        //********************
+        inputText = [...inputText ];
+var decrypted = "";
+for(var i = 0; i < inputText.length; i++){
+    decrypted += letterMap1[inputText[i]] ||inputText[i];
+}
+function clearInput(element){ element.value=""; }
+document.getElementById("b").textContent = decrypted;}
+
+
+
+var letterMap2 = {
+    "A": "😀",
+    "B": "🍍",
+    "C": "🍟",
+    "D": "🍭",
+    "E": "🚗",
+    "F": "🎭",
+    "G": "🎲",
+    "H": "🏆",
+    "I": "⌚",
+    "J": "⚽",
+    "K": "👑",
+    "L": "📺",
+    "M": "💰",
+    "N": "💖",
+    "O": "😃",
+    "P": "🐁",
+    "Q": "🏵",
+    "R": "🐇",
+    "S": "🍬",
+    "T": "🏰",
+    "U": "🐎",    
+    "V": "🐪",
+    "W": "🍄",
+    "X": "🌹",
+    "Y": "😘",
+    "Z": "😇",}
+
+function myFunction2() { 
+        var inputText =  document.getElementById("data").value;
+var word = inputText.toUpperCase();
+var encrypted = "";
+for(var i = 0; i < word.length; i++){
+    encrypted += letterMap2[word[i]] || word[i];
+}
+function clearInput(element){ element.value=""; }
+document.getElementById("a").innerHTML = encrypted;}
+
+var letterMap3 = {
+    "😀": "A",
+    "🍍": "B",
+    "🍟": "C",
+    "🍭": "D",
+    "🚗": "E",
+    "🎭": "F",
+    "🎲": "G",
+    "🏆": "H",
+    "⌚": "I",
+    "⚽": "J",
+    "👑": "K",
+    "📺": "L",
+    "💰": "M",
+    "💖": "N",
+    "😃": "O",
+    "🐁": "P",
+    "🏵": "Q",
+    "🐇": "R",
+    "🍬": "S",
+    "🏰": "T",
+    "🐎": "U",   
+    "🐪": "V",
+    "🍄": "W",
+    "🌹": "X",
+    "😘": "Y",
+    "😇": "Z"};
+
+function myFunction3() { 
+        var inputText =  document.getElementById("data1").value;
+        
+        //*************************
+        // magic happens here
+        
+        //********************
+        inputText = [...inputText ];
+var decrypted = "";
+for(var i = 0; i < inputText.length; i++){
+    decrypted += letterMap3[inputText[i]] ||inputText[i];
+}
+function clearInput(element){ element.value=""; }
+document.getElementById("b").textContent = decrypted;}
+
+
+var letterMap4 = {
+    "A": "🍟",
+    "B": "🌹",
+    "C": "🍄",
+    "D": "🐙",
+    "E": "🍍",
+    "F": "😘",
+    "G": "🎲",
+    "H": "🏆",
+    "I": "⌚",
+    "J": "⚽",
+    "K": "👑",
+    "L": "📺",
+    "M": "💰",
+    "N": "💖",
+    "O": "🐦",
+    "P": "🐁",
+    "Q": "🏵",
+    "R": "🐇",
+    "S": "🍬",
+    "T": "🏰",
+    "U": "🐎",    
+    "V": "🐪",
+    "W": "🤓",
+    "X": "🚗",
+    "Y": "🍭",
+    "Z": "😎",}
+
+function myFunction4() { 
+        var inputText =  document.getElementById("data").value;
+var word = inputText.toUpperCase();
+var encrypted = "";
+for(var i = 0; i < word.length; i++){
+    encrypted += letterMap4[word[i]] || word[i];
+}
+function clearInput(element){ element.value=""; }
+document.getElementById("a").innerHTML = encrypted;}
+
+var letterMap5 = {
+    "🍟": "A",
+    "🌹": "B",
+    "🍄": "C",
+    "🐙": "D",
+    "🍍": "E",
+    "😘": "F",
+    "🎲": "G",
+    "🏆": "H",
+    "⌚": "I",
+    "⚽": "J",
+    "👑": "K",
+    "📺": "L",
+    "💰": "M",
+    "💖": "N",
+    "🐦": "O",
+    "🐁": "P",
+    "🏵": "Q",
+    "🐇": "R",
+    "🍬": "S",
+    "🏰": "T",
+    "🐎": "U",   
+    "🐪": "V",
+    "🤓": "W",
+    "🚗": "X",
+    "🍭": "Y",
+    "😎": "Z"};
+
+function myFunction5() { 
+        var inputText =  document.getElementById("data1").value;
+        
+        //*************************
+        // magic happens here
+        
+        //********************
+        inputText = [...inputText ];
+var decrypted = "";
+for(var i = 0; i < inputText.length; i++){
+    decrypted += letterMap5[inputText[i]] ||inputText[i];
+}
+function clearInput(element){ element.value=""; }
+document.getElementById("b").textContent = decrypted;}
+
+
+var array = [];
+var array0 =["🙂","🙂"]
+var array1 = ["😃","😃","👑","👑","🐒","🐒"];
+
+var array2 = ["😃","😃","👑","👑","🐒","🐒","🍓","🍓","🐦","🐦","😎","😎"];
+
+var array3 = ["🐎","🐎","🍄","🍄","🤓","🤓","🐇","🐇","🏆","🏆","🍭","🍭","💖","💖","🎲","🎲","🚗","🚗"];
+
+var array4 = ["😇","😇","😃","😃","🙂","🙂","🤓","🤓","😎","😎","😘","😘","😵","😵","😀","😀","😉","😉"];
+
+var array5= ["🐒","🐒","🐢","🐢","🐦","🐦","🐩","🐩","🐪","🐪","🐠","🐠","🐎","🐎","🦁","🦁","🐕","🐕","🐈","🐈","🕊","🕊","🐙","🐙"];
+ 
+var array6 = ["😀","😀","😃","😃","😇","😇","😉","😉","🙃","🙃","😘","😘","😍","😍","😝","😝","🤓","🤓","😎","😎","😞","😞","🤔","🤔"];
+
+var array7 = ["🍓","🍓","🎂","🎂","😂","😂","😍","😍","🐒","🐒","🐪","🐪","🐦","🐦","🍭","🍭","🚗" ,"🚗","⛵","⛵","🎠","🎠","🌅","🌅","🏰","🏰","⚽","⚽","🏈","🏈"];
+
+var array8 = ["😀","😀","😃","😃","😇","😇","😉","😉","🙃","🙃","😘","😘","😍","😍","😝","😝","🤓","🤓","😎","😎","😞","😞","🤔","🤔","😂","😂","😅","😅","😮","😮"];
+
+
+ var array9 =  ["🍓","🍓","🎂","🎂","😂","😂","😍","😍","🐒","🐒","🐪","🐪","🐦","🐦","🍭","🍭","🚗" ,"🚗","⛵","⛵","🎠","🎠","🌅","🌅","🏰","🏰","⚽","⚽","🏈","🏈","🤓","🤓","😎","😎","😇","😇"];   
+ 
+ var array10 = ["😀","😀","😃","😃","😇","😇","😉","😉","🙃","🙃","😘","😘","😍","😍","😝","😝","🤓","🤓","😎","😎","😞","😞","🤔","🤔","😂","😂","😅","😅","😮","😮","😁","😁","😗","😗","😵","😵"];
+
+
+var lang = 'Level 0'; // default lang
+var arrayAllLang = [ 
+   {
+        lang: 'Start',
+        data: array0
+    },
+   
+    {
+        lang: 'Level 1',
+        data: array1
+    },
+    {
+        lang: 'Level 2',
+        data: array2
+    },
+    {
+        lang: 'Level 3',
+        data: array3
+    },
+    {
+        lang: 'Level 4',
+        data: array4
+    },
+    
+    {
+        lang: 'Level 5',
+        data: array5
+    },
+    
+    {
+        lang: 'Level 6',
+        data: array6
+    },
+    
+    {
+        lang: 'Level 7',
+        data: array7
+    },
+    
+    {
+        lang: 'Level 8',
+        data: array8
+    },
+    
+    {
+        lang: 'Level 9',
+        data: array9
+    },
+    
+    {
+        lang: 'Level 10',
+        data: array10
+    },
+];
+
+var langs = arrayAllLang.map(function(arr) {
+        return arr.lang;
+    }); // get all langs in one array
+
+
+// change lang button event
+function onChangelang(e) {
+    // lang = lang==='French'? 'German':lang==='German'?'Spanish':'French'
+        
+    var index = langs.indexOf(lang);
+    if(index<langs.length-1) lang = langs[index+1];
+    else lang = langs[0];
+    
+    
+    e.innerText = lang;
+    newBoard();
+}
+
+
+function getArray() {
+    return arrayAllLang.reduce(function(acc,d) {
+       if(d.lang===lang) acc = d.data;
+       return acc;
+    },[]);
+}
+
+var values = [];
+var ids = [];
+var flipped = 0;
+Array.prototype.shuffle = function(){
+    var i = this.length, j, temp;
+    while(--i > 0){
+        j = Math.floor(Math.random() * (i+1));
+        temp = this[j];
+        this[j] = this[i];
+        this[i] = temp;
+    }
+}
+function newBoard(){
+    array = getArray();
+    tiles_flipped = 0;
+    var output = '';
+    array.shuffle();
+    for(var i = 0; i < array.length; i++){
+        output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+array[i]+'\')"></div>';
+    }
+    document.getElementById('board').innerHTML = output;
+}
+
+function memoryFlipTile(tile,val){
+    if(tile.innerHTML == "" && values.length < 2){
+        tile.style.background = '#FFF';
+        tile.innerHTML = val;
+      if(values.length == 0){
+            values.push(val);
+            ids.push(tile.id);
+        } else if(values.length == 1){
+            values.push(val);
+            ids.push(tile.id);
+      if(values[0] == values[1]){
+                tiles_flipped += 2;
+            
+                values = [];
+                ids = [];
+                
+      if(tiles_flipped == array.length){
+                    alert("Great Job!!! You Win!!! 🙂 Play again? or Select new Level");
+                    document.getElementById('board').innerHTML = "";
+
+newBoard();
+  }  } else {
+       function flip2Back(){
+                
+ var tile_1 = document.getElementById(ids[0]);
+ var tile_2 = document.getElementById(ids[1]);
+ 
+                  
+    tile_1.innerHTML = "";
+    tile_2.style.background = 'url(tile_bg.jpg) no-repeat';
+    tile_2.innerHTML = ""; 
+    tile_1.style.background = 'url(tile_bg.jpg) no-repeat';
+       values = [];
+       ids = [];
+                }
+                setTimeout(flip2Back, 800);
+                var index;
+            }}}}
+myPix = new Array("./img/pic2.png"," ./img/pic3.png","./img/pic4.png");
+
+a = myPix.length;
+
+pic = new Array("./img/pic2.png"," ./img/pic3.png","./img/pic4.png");
+
+b = pic.length;
+
+film = new Array ("./img/pic2.png"," ./img/pic3.png","./img/pic4.png");
+
+c = film.length;
+
+function choosePic() {
+ if (document.images) {
+  randomNum = Math.floor(Math.random() * a);
+  document.myPicture.src = myPix[randomNum];
+  ranNu = Math.floor(Math.random() * b);
+  document.myimages.src = pic[ranNu];
+  number = Math.floor(Math.random() * c);
+  document.cinema.src = film[number];
+  e = setTimeout("choosePic()", 300);
+ }
+}
+
+function stopit() {
+ q = clearTimeout(e);
+ if (myPix[randomNum] == myPix[0] && pic[ranNu] == pic[0] && film[number] == film[0]) {
+   alert("Awesome!!! You Won!!!");
+ } else if (myPix[randomNum] == myPix[1] && pic[ranNu] == pic[1] && film[number] == film[1]) {
+   alert("Awesome!!! You won!!!");
+ } else if (myPix[randomNum] == myPix[2] && pic[ranNu] == pic[2] && film[number] == film[2]) {
+  alert("Awesome!!! You won!!!");
+ }
+}
+function nudging() {
+ if (document.images) {
+  randomNum = Math.floor(Math.random() * a);
+  document.myPicture.src = myPix[randomNum];
+ }
+}
+
+function nuggett() {
+ if (document.images) {
+  ranNu = Math.floor(Math.random() * b);
+  document.myimages.src = myPix[ranNu];
+ }
+}
+function get_nug() {
+ if (document.images) {
+  number = Math.floor(Math.random() * c);
+  document.cinema.src = myPix[number];
+ }
+}
+
+function playSound1 () { document.getElementById('play1').play(); }
+
+function playSound2 () { document.getElementById('play2').play(); }
+
+function playSound3 () { document.getElementById('play3').play(); }
+
+function playSound4 () { document.getElementById('play4').play(); }
+
+function playSound5 () { document.getElementById('play5').play(); }
+
+function playSound6 () { document.getElementById('play6').play(); }
+
+function playSound7 () { document.getElementById('play7').play(); }
+
+    </script>
+    </body>
+</html>
